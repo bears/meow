@@ -24,4 +24,4 @@
 				controller : 'FlowCtrl'
 			});
 	});
-})(angular.module('meow', ['ngRoute', 'ngTouch']));
+})(angular.module('meow', ['ngRoute']));
