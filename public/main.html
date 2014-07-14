@@ -1,7 +1,11 @@
-<a ng-href="#/subject/{{ subject.id }}" ng-repeat="subject in list">
-	<blockquote class="panel-{{ subject.color }} col-sm-6 col-lg-4">
-		<span class="glyphicon glyphicon-chevron-right pull-right"></span>
+<div class="row">
+	<a class="col-xs-12 col-sm-6 col-lg-4"
+	   ng-href="#/subject/{{ subject.id }}"
+	   ng-repeat="subject in list">
+		<blockquote class="panel-{{ subject.color }}">
+			<span class="glyphicon glyphicon-chevron-right pull-right"></span>
 
-		<p>{{ subject.title }}</p>
-	</blockquote>
-</a>
+			<p>{{ subject.title }}</p>
+		</blockquote>
+	</a>
+</div>

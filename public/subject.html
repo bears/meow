@@ -1,2 +1,15 @@
-Subject page...
-streams
+<div class="row" ng-repeat="stream in list">
+	<h2 class="col-xs-12 page-header text-{{ stream.color }}">
+		{{ stream.title }}
+		<small class="glyphicon glyphicon-wrench pull-right"></small>
+	</h2>
+	<a class="col-xs-12 col-sm-6 col-lg-4"
+	   ng-href="#/subject/{{ subject }}/{{ fragment.id }}"
+	   ng-repeat="fragment in stream.fragments">
+		<blockquote class="panel-{{ fragment.color }}">
+			<span class="glyphicon glyphicon-chevron-right pull-right"></span>
+
+			<p>{{ fragment.title }}</p>
+		</blockquote>
+	</a>
+</div>
