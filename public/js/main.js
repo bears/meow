@@ -2,6 +2,10 @@
 	"use strict";
 
 	app.controller('MainCtrl', function ($scope, $routeParams) {
+		$scope.createSubject = function (name) {
+			alert('todo: create ' + name);
+		};
+
 		$scope.list = [
 			{
 				id : "xxxx",

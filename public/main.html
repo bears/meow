@@ -1,11 +1,26 @@
 <div class="row">
 	<a class="col-xs-12 col-sm-6 col-lg-4"
-	   ng-href="#/subject/{{ subject.id }}"
+	   ng-href="#/subject/{{subject.id}}"
 	   ng-repeat="subject in list">
-		<blockquote class="panel-{{ subject.color }}">
+		<blockquote class="panel-{{subject.color}} text-{{subject.color}}">
 			<span class="glyphicon glyphicon-chevron-right pull-right"></span>
 
-			<p>{{ subject.title }}</p>
+			<p>{{subject.title}}</p>
 		</blockquote>
 	</a>
+
+	<form class="col-xs-12 col-sm-6 col-lg-4"
+	      ng-submit="createSubject(newSubject)">
+		<blockquote class="input-group input-group-lg">
+			<input class="form-control"
+			       placeholder="Create New Subject&hellip;"
+			       ng-model="newSubject" />
+
+			<div class="input-group-btn">
+				<button class="btn btn-default">
+					<span class="glyphicon glyphicon-plus"></span>
+				</button>
+			</div>
+		</blockquote>
+	</form>
 </div>
