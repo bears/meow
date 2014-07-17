@@ -100,4 +100,19 @@
 			<p>{{flow.title}}</p>
 		</blockquote>
 	</a>
+
+	<form class="col-xs-12 col-sm-6 col-lg-4"
+	      ng-submit="createFlow(newFlow)">
+		<blockquote class="input-group input-group-lg">
+			<input class="form-control"
+			       placeholder="Create New Flow&hellip;"
+			       ng-model="newFlow" />
+
+			<div class="input-group-btn">
+				<button class="btn btn-default">
+					<span class="glyphicon glyphicon-plus"></span>
+				</button>
+			</div>
+		</blockquote>
+	</form>
 </div>
