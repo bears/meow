@@ -1,15 +1,103 @@
+<div class="row">
+	<div class="col-xs-12">
+		<h1 class="dropdown">
+			<small class="dropdown pull-right">
+				<a class="btn btn-danger dropdown-toggle"
+				   data-toggle="dropdown">
+					<span class="glyphicon glyphicon-chevron-down"></span>
+				</a>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li class="dropdown-header text-center">Subject Actions</li>
+					<li><a href="#">
+						<span class="glyphicon glyphicon-tint"></span>
+						Change Color&hellip;
+					</a></li>
+					<li><a href="#">
+						<span class="glyphicon glyphicon-edit"></span>
+						Rename&hellip;
+					</a></li>
+					<li><a href="#">
+						<span class="glyphicon glyphicon-share"></span>
+						Share&hellip;
+					</a></li>
+					<li class="divider"></li>
+					<li><a href="#">
+						<span class="glyphicon glyphicon-eye-close"></span>
+						Close
+					</a></li>
+					<li class="divider"></li>
+					<li class="dropdown-header text-center">Stream Actions</li>
+					<li><a href="#">
+						<span class="glyphicon glyphicon-plus"></span>
+						Add&hellip;
+					</a></li>
+					<li><a href="#">
+						<span class="glyphicon glyphicon-transfer"></span>
+						Move All&hellip;
+					</a></li>
+					<li class="divider"></li>
+					<li><a href="#">
+						<span class="glyphicon glyphicon-eye-close"></span>
+						Close All
+					</a></li>
+				</ul>
+			</small>
+			<span class="text-danger">{{title}}</span>
+		</h1>
+	</div>
+</div>
 <div class="row" ng-repeat="stream in list">
-	<h2 class="col-xs-12 page-header text-{{ stream.color }}">
-		{{ stream.title }}
-		<small class="glyphicon glyphicon-wrench pull-right"></small>
+	<h2 class="col-xs-12 page-header">
+		<small class="dropdown pull-right">
+			<a class="btn btn-{{stream.color}} dropdown-toggle"
+			   data-toggle="dropdown">
+				<span class="glyphicon glyphicon-chevron-down"></span>
+			</a>
+			<ul class="dropdown-menu dropdown-menu-right">
+				<li class="dropdown-header text-center">Stream Actions</li>
+				<li><a href="#">
+					<span class="glyphicon glyphicon-tint"></span>
+					Change Color&hellip;
+				</a></li>
+				<li><a href="#">
+					<span class="glyphicon glyphicon-transfer"></span>
+					Move&hellip;
+				</a></li>
+				<li><a href="#">
+					<span class="glyphicon glyphicon-edit"></span>
+					Rename&hellip;
+				</a></li>
+				<li class="divider"></li>
+				<li><a href="#">
+					<span class="glyphicon glyphicon-eye-close"></span>
+					Close
+				</a></li>
+				<li class="divider"></li>
+				<li class="dropdown-header text-center">Flow Actions</li>
+				<li><a href="#">
+					<span class="glyphicon glyphicon-plus"></span>
+					Add&hellip;
+				</a></li>
+				<li><a href="#">
+					<span class="glyphicon glyphicon-transfer"></span>
+					Move All&hellip;
+				</a></li>
+				<li class="divider"></li>
+				<li><a href="#">
+					<span class="glyphicon glyphicon-eye-close"></span>
+					Close All
+				</a></li>
+			</ul>
+		</small>
+		<span class="text-{{stream.color}}">{{stream.title}}</span>
 	</h2>
 	<a class="col-xs-12 col-sm-6 col-lg-4"
-	   ng-href="#/subject/{{ subject }}/{{ fragment.id }}"
-	   ng-repeat="fragment in stream.fragments">
-		<blockquote class="panel-{{ fragment.color }}">
+	   ng-href="#/subject/{{subject}}/{{flow.id}}"
+	   ng-repeat="flow in stream.flows">
+		<blockquote class="panel-{{flow.color}} text-{{flow.color}}">
 			<span class="glyphicon glyphicon-chevron-right pull-right"></span>
 
-			<p>{{ fragment.title }}</p>
+			<p>{{flow.title}}</p>
 		</blockquote>
 	</a>
 </div>

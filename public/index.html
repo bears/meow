@@ -9,8 +9,6 @@
       href="vendor/angular/angular-csp.css" />
 <link rel="stylesheet"
       href="vendor/bootstrap/css/bootstrap.min.css" />
-<link rel="stylesheet"
-      href="vendor/bootstrap/css/bootstrap-theme.min.css" />
 <link rel="stylesheet" href="css/index.css" />
 <title>Me&hellip;ow</title>
 </head>
@@ -33,6 +31,11 @@
 		</div>
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#/archive">
+					<span class="glyphicon glyphicon-compressed"></span>
+					Archive
+				</a></li>
+				<li class="nav-divider"></li>
 				<li><a href="#/account">
 					<span class="glyphicon glyphicon-user"></span>
 					Account
@@ -48,7 +51,7 @@
 <div class="container" ng-view></div>
 <footer class="container">
 	<hr />
-	&copy; Bears Home
+	<p>&copy; Bears Home</p>
 </footer>
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/angular/angular.min.js"></script>

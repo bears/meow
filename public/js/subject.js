@@ -3,11 +3,12 @@
 
 	app.controller('SubjectCtrl', function ($scope, $routeParams) {
 		$scope.subject = $routeParams.subject;
+		$scope.title = "こんな何气ない一日新";
 		$scope.list = [
 			{
 				color : "default",
 				title : "To do",
-				fragments : [
+				flows : [
 					{
 						id : "xxxx",
 						color : "default",
@@ -28,7 +29,7 @@
 			{
 				color : "info",
 				title : "Doing",
-				fragments : [
+				flows : [
 					{
 						id : "xxxx",
 						color : "info",
@@ -74,7 +75,7 @@
 			{
 				color : "success",
 				title : "Done",
-				fragments : [
+				flows : [
 					{
 						id : "xxxx",
 						color : "success",
@@ -95,7 +96,7 @@
 			{
 				color : "warning",
 				title : "Ignored",
-				fragments : [
+				flows : [
 					{
 						id : "xxxx",
 						color : "warning",
@@ -121,7 +122,7 @@
 			{
 				color : "danger",
 				title : "Unknown",
-				fragments : [
+				flows : [
 					{
 						id : "xxxx",
 						color : "danger",

@@ -19,7 +19,7 @@
 				templateUrl : 'subject.html',
 				controller : 'SubjectCtrl'
 			})
-			.when('/subject/:subject/:fragment', {
+			.when('/subject/:subject/:flow', {
 				templateUrl : 'flow.html',
 				controller : 'FlowCtrl'
 			});
