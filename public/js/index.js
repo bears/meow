@@ -7,13 +7,21 @@
 				templateUrl : 'account.html',
 				controller : 'AccountCtrl'
 			})
-			.when('/setting', {
-				templateUrl : 'setting.html',
-				controller : 'SettingCtrl'
+			.when('/help', {
+				templateUrl : 'help.html',
+				controller : 'HelpCtrl'
+			})
+			.when('/archives', {
+				templateUrl : 'archives.html',
+				controller : 'ArchiveListCtrl'
+			})
+			.when('/messages', {
+				templateUrl : 'messages.html',
+				controller : 'MessageListCtrl'
 			})
 			.when('/subjects', {
-				templateUrl : 'main.html',
-				controller : 'MainCtrl'
+				templateUrl : 'subjects.html',
+				controller : 'SubjectListCtrl'
 			})
 			.when('/subject/:subject', {
 				templateUrl : 'subject.html',

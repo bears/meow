@@ -1,7 +1,7 @@
 (function (app) {
 	"use strict";
 
-	app.controller('MainCtrl', function ($scope, $routeParams) {
+	app.controller('SubjectListCtrl', function ($scope, $routeParams) {
 		$scope.createSubject = function (name) {
 			alert('todo: create ' + name);
 		};

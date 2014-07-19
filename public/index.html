@@ -13,7 +13,7 @@
 <title>Me&hellip;ow</title>
 </head>
 <body ng-cloak>
-<header class="navbar navbar-default navbar-fixed-top" role="navigation">
+<header class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
 			<button class="navbar-toggle"
@@ -25,26 +25,36 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">
+			<a class="navbar-brand" href="." target="_self">
 				<img alt="Me&hellip;ow" class="m-logo" src="images/favicon.png">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#/archive">
+			<ul class="nav navbar-nav">
+				<li><a href="#/subjects">
+					<span class="glyphicon glyphicon-paperclip"></span>
+					Subjects
+				</a></li>
+				<li><a href="#/archives">
 					<span class="glyphicon glyphicon-compressed"></span>
-					Archive
+					Archives
 				</a></li>
-				<li class="nav-divider"></li>
-				<li><a href="#/account">
-					<span class="glyphicon glyphicon-user"></span>
-					Account
-				</a></li>
-				<li><a href="#/setting">
-					<span class="glyphicon glyphicon-cog"></span>
-					Setting
+				<li><a href="#/messages">
+					<span class="glyphicon glyphicon-envelope"></span>
+					Messages
 				</a></li>
 			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#/help">
+					<span class="glyphicon glyphicon-question-sign"></span>
+					Help
+				</a></li>
+			</ul>
+			<p class="navbar-text navbar-right">
+				<span class="glyphicon glyphicon-user"></span>
+				Signed in as
+				<a class="navbar-link" href="#/account">Iceberg YOUNG</a>
+			</p>
 		</div>
 	</div>
 </header>
@@ -59,8 +69,8 @@
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="js/index.js"></script>
 <script src="js/account.js"></script>
-<script src="js/setting.js"></script>
-<script src="js/main.js"></script>
+<script src="js/help.js"></script>
+<script src="js/subjects.js"></script>
 <script src="js/subject.js"></script>
 <script src="js/flow.js"></script>
 </body>

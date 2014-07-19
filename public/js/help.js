@@ -1,6 +1,6 @@
 (function (app) {
 	"use strict";
 
-	app.controller('SettingCtrl', function ($scope, $routeParams) {
+	app.controller('HelpCtrl', function ($scope, $routeParams) {
 	});
 })(angular.module('meow'));
