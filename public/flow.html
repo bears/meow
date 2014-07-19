@@ -1,48 +1,39 @@
 <div class="row">
 	<div class="col-xs-12">
-		<h1>
-			<div class="dropdown pull-right">
-				<a class="btn btn-{{color}} dropdown-toggle"
-				   data-toggle="dropdown">
-					<span class="glyphicon glyphicon-chevron-down"></span>
-				</a>
-				<ul class="dropdown-menu dropdown-menu-right">
-					<li class="dropdown-header text-center">Flow Actions</li>
-					<li><a href="#">
-						<span class="glyphicon glyphicon-list"></span>
-						Add Checklist
-					</a></li>
-					<li><a href="#">
-						<span class="glyphicon glyphicon-share-alt"></span>
-						Move&hellip;
-					</a></li>
-					<li class="divider"></li>
-					<li><a href="#">
-						<span class="glyphicon glyphicon-off"></span>
-						Close
-					</a></li>
-				</ul>
+		<h1 class="row">
+			<span class="col-xs-8 col-md-10 text-{{color}}">{{title}}</span>
+
+			<div class="col-xs-4 col-md-2">
+				<div class="btn-group pull-right">
+					<button class="btn btn-default">
+						<span class="glyphicon glyphicon-edit"></span>
+						Edit
+					</button>
+					<button class="btn btn-default dropdown-toggle"
+					        data-toggle="dropdown">
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li class="dropdown-header text-center">Extra Actions</li>
+						<li><a href="#">
+							<span class="glyphicon glyphicon-check"></span>
+							Add Checklist
+						</a></li>
+						<li><a href="#">
+							<span class="glyphicon glyphicon-share"></span>
+							Move&hellip;
+						</a></li>
+						<li class="divider"></li>
+						<li><a href="#">
+							<span class="glyphicon glyphicon-off"></span>
+							Close
+						</a></li>
+					</ul>
+				</div>
 			</div>
-			<span class="text-{{color}}">{{title}}</span>
-			<small class="glyphicon glyphicon-edit"></small>
 		</h1>
 		<div class="row m-flow-details">
 			<div class="col-xs-12 col-md-5 pull-right m-dl">
-				<fieldset>
-					<legend>
-						<span class="glyphicon glyphicon-tag"></span>
-						Color
-					</legend>
-					<div class="btn-group btn-group-justified">
-						<div class="btn-group" ng-repeat="co in colorOptions">
-							<button class="btn btn-{{co}}"
-							        ng-click="changeColor(co)">
-								<span class="glyphicon"
-								      ng-class="{'glyphicon-ok':co===color}"></span>
-							</button>
-						</div>
-					</div>
-				</fieldset>
 				<fieldset>
 					<legend>
 						<span class="glyphicon glyphicon-info-sign"></span>
@@ -120,6 +111,21 @@
 							<span class="glyphicon glyphicon-plus"></span>
 						</button>
 					</p>
+				</fieldset>
+				<fieldset>
+					<legend>
+						<span class="glyphicon glyphicon-tag"></span>
+						Color
+					</legend>
+					<div class="btn-group btn-group-justified">
+						<div class="btn-group" ng-repeat="co in colorOptions">
+							<button class="btn btn-{{co}}"
+							        ng-click="changeColor(co)">
+								<span class="glyphicon"
+								      ng-class="{'glyphicon-ok':co===color}"></span>
+							</button>
+						</div>
+					</div>
 				</fieldset>
 			</div>
 			<div class="col-xs-12 col-md-7">

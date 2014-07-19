@@ -2,6 +2,7 @@
 	"use strict";
 
 	app.controller('FlowCtrl', function ($scope, $routeParams) {
+		$scope.id = $routeParams.flow;
 		$scope.colorOptions = ['default', 'danger', 'warning', 'success', 'info', 'primary'];
 		$scope.color = 'danger';
 		$scope.changeColor = function (color) {

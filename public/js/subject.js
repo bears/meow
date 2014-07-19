@@ -2,6 +2,12 @@
 	"use strict";
 
 	app.controller('SubjectCtrl', function ($scope, $routeParams) {
+		$scope.id = $routeParams.subject;
+		$scope.colorOptions = ['default', 'danger', 'warning', 'success', 'info', 'primary'];
+		$scope.color = 'danger';
+		$scope.changeColor = function (color) {
+			$scope.color = color;
+		};
 		$scope.newTitle = $scope.title = "こんな何气ない一日新";
 		$scope.changeTitle = function () {
 			$scope.title = $scope.newTitle;

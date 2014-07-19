@@ -1,74 +1,73 @@
 <div class="row">
 	<div class="col-xs-12">
-		<h1 class="dropdown">
-			<small class="dropdown pull-right">
-				<a class="btn btn-danger dropdown-toggle"
-				   data-toggle="dropdown">
-					<span class="glyphicon glyphicon-chevron-down"></span>
-				</a>
-				<ul class="dropdown-menu dropdown-menu-right">
-					<li class="dropdown-header text-center">Subject Actions</li>
-					<li><a href="#">
-						<span class="glyphicon glyphicon-tint"></span>
-						Color&hellip;
-					</a></li>
-					<li><a href="#">
-						<span class="glyphicon glyphicon-share"></span>
-						Share&hellip;
-					</a></li>
-					<li class="divider"></li>
-					<li><a href="#">
-						<span class="glyphicon glyphicon-plus"></span>
-						Add Stream&hellip;
-					</a></li>
-					<li class="divider"></li>
-					<li><a href="#">
-						<span class="glyphicon glyphicon-off"></span>
-						Close
-					</a></li>
-				</ul>
-			</small>
-			<span class="text-danger"
-			      ng-click="isEditingTitle=true"
-			      ng-hide="isEditingTitle">{{title}}</span>
+		<h1 class="row">
+			<div class="col-xs-8 col-md-10">
+				<p class="text-{{color}}"
+				   ng-hide="isEditingTitle">{{title}}</p>
 
-			<form class="input-group input-group-lg col-xs-10"
-			      ng-show="isEditingTitle"
-			      ng-submit="changeTitle()">
-				<input class="form-control"
-				       ng-show="isEditingTitle"
-				       ng-model="newTitle" />
+				<form class="input-group input-group-lg"
+				      ng-show="isEditingTitle"
+				      ng-submit="changeTitle()">
+					<input class="form-control"
+					       ng-show="isEditingTitle"
+					       ng-model="newTitle" />
 
-				<div class="input-group-btn">
-					<button class="btn" type="submit" ng-class="titleBtnCls()">
-						<span class="glyphicon" ng-class="titleIcoCls()"></span>
+					<div class="input-group-btn">
+						<button class="btn"
+						        type="submit"
+						        ng-class="titleBtnCls()">
+							<span class="glyphicon"
+							      ng-class="titleIcoCls()"></span>
+						</button>
+					</div>
+				</form>
+			</div>
+			<div class="col-xs-4 col-md-2">
+				<div class="btn-group pull-right">
+					<button class="btn btn-default"
+					        ng-click="isEditingTitle=true">
+						<span class="glyphicon glyphicon-edit"></span>
+						Edit
 					</button>
+					<button class="btn btn-default dropdown-toggle"
+					        data-toggle="dropdown">
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li class="dropdown-header text-center">Extra Actions</li>
+						<li><a href="#">
+							<span class="glyphicon glyphicon-share-alt"></span>
+							share&hellip;
+						</a></li>
+						<li class="divider"></li>
+						<li><a href="#">
+							<span class="glyphicon glyphicon-off"></span>
+							Close
+						</a></li>
+					</ul>
 				</div>
-			</form>
+			</div>
 		</h1>
 	</div>
 </div>
 <div class="row" ng-repeat="stream in list">
 	<h2 class="col-xs-12 page-header">
-		<small class="dropdown pull-right">
-			<a class="btn btn-{{stream.color}} dropdown-toggle"
-			   data-toggle="dropdown">
-				<span class="glyphicon glyphicon-chevron-down"></span>
-			</a>
+		<span class="text-muted">{{stream.title}}</span>
+
+		<div class="btn-group pull-right">
+			<button class="btn btn-default">
+				<span class="glyphicon glyphicon-edit"></span>
+				Edit
+			</button>
+			<button class="btn btn-default dropdown-toggle"
+			        data-toggle="dropdown">
+				<span class="caret"></span>
+			</button>
 			<ul class="dropdown-menu dropdown-menu-right">
-				<li class="dropdown-header text-center">Stream Actions</li>
+				<li class="dropdown-header text-center">Extra Actions</li>
 				<li><a href="#">
-					<span class="glyphicon glyphicon-tint"></span>
-					Color&hellip;
-				</a></li>
-				<li><a href="#">
-					<span class="glyphicon glyphicon-share-alt"></span>
+					<span class="glyphicon glyphicon-share"></span>
 					Move&hellip;
-				</a></li>
-				<li class="divider"></li>
-				<li><a href="#">
-					<span class="glyphicon glyphicon-plus"></span>
-					Add Flow&hellip;
 				</a></li>
 				<li class="divider"></li>
 				<li><a href="#">
@@ -76,8 +75,7 @@
 					Close
 				</a></li>
 			</ul>
-		</small>
-		<span class="text-{{stream.color}}">{{stream.title}}</span>
+		</div>
 	</h2>
 	<a class="col-xs-12 col-sm-6 col-lg-4"
 	   ng-href="#/flow/{{flow.id}}"
@@ -93,7 +91,7 @@
 	      ng-submit="createFlow(newFlow)">
 		<blockquote class="input-group input-group-lg">
 			<input class="form-control"
-			       placeholder="Create New Flow&hellip;"
+			       placeholder="New Flow&hellip;"
 			       ng-model="newFlow" />
 
 			<div class="input-group-btn">
@@ -103,4 +101,33 @@
 			</div>
 		</blockquote>
 	</form>
+</div>
+<div class="row">
+	<hr />
+	<div class="col-xs-12 col-sm-6">
+		<div class="input-group input-group-lg">
+			<input class="form-control"
+			       placeholder="New Stream&hellip;"
+			       ng-model="newStream" />
+
+			<div class="input-group-btn">
+				<button class="btn btn-default">
+					<span class="glyphicon glyphicon-plus"></span>
+				</button>
+			</div>
+		</div>
+	</div>
+	<p class="visible-xs">&nbsp;</p>
+
+	<div class="col-xs-12 col-sm-6">
+		<div class="btn-group btn-group-justified">
+			<div class="btn-group btn-group-lg" ng-repeat="co in colorOptions">
+				<button class="btn btn-{{co}}"
+				        ng-click="changeColor(co)">
+								<span class="glyphicon"
+								      ng-class="{'glyphicon-ok':co===color}"></span>
+				</button>
+			</div>
+		</div>
+	</div>
 </div>
