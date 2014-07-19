@@ -1,1 +1,185 @@
-Flow page...
+<div class="row">
+	<div class="col-xs-12">
+		<h1>
+			<div class="dropdown pull-right">
+				<a class="btn btn-{{color}} dropdown-toggle"
+				   data-toggle="dropdown">
+					<span class="glyphicon glyphicon-chevron-down"></span>
+				</a>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li class="dropdown-header text-center">Flow Actions</li>
+					<li><a href="#">
+						<span class="glyphicon glyphicon-list"></span>
+						Add Checklist
+					</a></li>
+					<li><a href="#">
+						<span class="glyphicon glyphicon-share-alt"></span>
+						Move&hellip;
+					</a></li>
+					<li class="divider"></li>
+					<li><a href="#">
+						<span class="glyphicon glyphicon-off"></span>
+						Close
+					</a></li>
+				</ul>
+			</div>
+			<span class="text-{{color}}">{{title}}</span>
+			<small class="glyphicon glyphicon-edit"></small>
+		</h1>
+		<div class="row m-flow-details">
+			<div class="col-xs-12 col-md-5 pull-right m-dl">
+				<fieldset>
+					<legend>
+						<span class="glyphicon glyphicon-tag"></span>
+						Color
+					</legend>
+					<div class="btn-group btn-group-justified">
+						<div class="btn-group" ng-repeat="co in colorOptions">
+							<button class="btn btn-{{co}}"
+							        ng-click="changeColor(co)">
+								<span class="glyphicon"
+								      ng-class="{'glyphicon-ok':co===color}"></span>
+							</button>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>
+						<span class="glyphicon glyphicon-info-sign"></span>
+						Description
+					</legend>
+					<p>
+						东吴后期名将陆抗，二十岁时就被任命为建武校尉；带领他父亲陆逊留下的部众五千人。公元264年，孙皓当了东吴的国君，三十八岁的陆抗担任镇军大将军。当时，东吴的朝政非常腐败。孙皓荒淫暴虐，宫女有好几千人，还向民间掠夺；又用剥面皮、凿眼睛筹酷刑任意杀人。陆抗对孙皓的所作所为非常不满，多次上书，劝谏他对外加强防守，对内改善政治，以增强国力。他曾在奏疏中一次陈述当前应做的事达十六件之多。但是，孙皓对他的建议置之不理。 公元272年，镇守西陵的吴将步阐投降晋朝。陆抗得知后、立即率军征讨步阐。他知道晋军一定会来接应步阐，因此命令军民在西 陵外围修筑一道坚固的围墙。吴将多次要求攻打西陵，但陆抗总是不许。等到工事完成；晋军已经赶到西陵接应步阐，陆抗率军击退来援的晋军，再向西陵发起猛攻，很快攻进城内，将叛将步阐杀死。当时，晋朝的车骑将军羊祜镇守襄阳。他见陆抗能攻善守，知道要打败东吴并不容易，因此对东吴采取和解策略：部下掠夺了东吴的孩子，他下令放回；行军到东吴边境，收割了东吴方面的庄稼，就送绢帛给东吴作抵偿，猎获的禽兽已被吴人打伤，就送还东吴。陆抗明白羊祜的用意，也用同样的态度对待晋商。
+						<span class="glyphicon glyphicon-edit"></span>
+					</p>
+				</fieldset>
+				<fieldset>
+					<legend>
+						<span class="glyphicon glyphicon-time"></span>
+						Due Date
+					</legend>
+					<p>
+						<mark>2014-07-18</mark>
+						<span class="glyphicon glyphicon-edit"></span>
+					</p>
+				</fieldset>
+				<fieldset>
+					<legend>
+						<span class="glyphicon glyphicon-list"></span>
+						Some pairs.
+					</legend>
+					<div>
+						<p>
+							<span class="glyphicon glyphicon-unchecked"></span>
+							min-max pair.
+							<br />
+							<span class="glyphicon glyphicon-check"></span>
+							<del class="text-muted">key-value pair.</del>
+							<br />
+							<span class="glyphicon glyphicon-check"></span>
+							<del class="text-muted">append|insert into [][]...</del>
+						</p>
+						<div class="progress">
+							<div class="progress-bar progress-bar-{{color}}"
+							     style="width:66%;">66%
+							</div>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>
+						<span class="glyphicon glyphicon-list"></span>
+						Unnecessary list.
+					</legend>
+					<div>
+						<p>
+							<span class="glyphicon glyphicon-unchecked"></span>
+							min-max pair.
+							<br />
+							<span class="glyphicon glyphicon-unchecked"></span>
+							key-value pair.
+							<br />
+							<span class="glyphicon glyphicon-unchecked"></span>
+							append|insert into [][]...
+						</p>
+
+						<div class="progress">
+							<div class="progress-bar progress-bar-{{color}}">0%</div>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>
+						<span class="glyphicon glyphicon-user"></span>
+						Member
+					</legend>
+					<p>
+						<img src="https://s.gravatar.com/avatar/1cd363fa7ee9cfe910cc536cb49cead9?s=40" />
+						<img src="https://s.gravatar.com/avatar/194584c8d388ea49cd012f7b35d05ac7?s=40" />
+						<button class="btn btn-default">
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+					</p>
+				</fieldset>
+			</div>
+			<div class="col-xs-12 col-md-7">
+				<fieldset>
+					<legend>
+						<span class="glyphicon glyphicon-comment"></span>
+						Comments
+					</legend>
+					<div class="input-group input-group-lg">
+						<input class="form-control"
+						       placeholder="New Comment&hellip;" />
+
+						<div class="input-group-btn">
+							<button class="btn btn-default">
+								<span class="glyphicon glyphicon-plus"></span>
+							</button>
+						</div>
+					</div>
+					<hr />
+					<div class="row">
+						<div class="col-xs-2 text-right">
+							<img src="https://s.gravatar.com/avatar/1cd363fa7ee9cfe910cc536cb49cead9?s=64" />
+						</div>
+						<blockquote class="col-xs-10">
+							<q>东吴后期名将陆抗，二十岁时就被任命为建武校尉；带领他父亲陆逊留下的部众五千人。</q>
+							<footer>
+								May 29 at 4:24 pm
+								<button class="btn-link">Edit</button>
+							</footer>
+						</blockquote>
+					</div>
+					<div class="row">
+						<div class="col-xs-2 pull-right">
+							<img src="https://s.gravatar.com/avatar/194584c8d388ea49cd012f7b35d05ac7?s=64" />
+						</div>
+						<blockquote class="blockquote-reverse col-xs-10">
+							<q>公元264年，孙皓当了东吴的国君，陆抗担任镇军大将军。</q>
+							<footer>May 29 at 4:24 pm</footer>
+						</blockquote>
+					</div>
+					<div class="row">
+						<div class="col-xs-2 text-right">
+							<img src="https://s.gravatar.com/avatar/1cd363fa7ee9cfe910cc536cb49cead9?s=64" />
+						</div>
+						<blockquote class="col-xs-10">
+							<q>当时，东吴的朝政非常腐败。孙皓荒淫暴虐，宫女有好几千人，还向民间掠夺；又用剥面皮、凿眼睛筹酷刑任意杀人。</q>
+							<footer>May 29 at 4:24 pm</footer>
+						</blockquote>
+					</div>
+					<div class="row">
+						<div class="col-xs-2 pull-right">
+							<img src="https://s.gravatar.com/avatar/194584c8d388ea49cd012f7b35d05ac7?s=64" />
+						</div>
+						<blockquote class="blockquote-reverse col-xs-10">
+							<q>陆抗对孙皓的所作所为非常不满，多次上书，劝谏他对外加强防守，对内改善政治，以增强国力。</q>
+							<footer>May 29 at 4:24 pm</footer>
+						</blockquote>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+</div>

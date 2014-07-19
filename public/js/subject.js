@@ -2,8 +2,17 @@
 	"use strict";
 
 	app.controller('SubjectCtrl', function ($scope, $routeParams) {
-		$scope.subject = $routeParams.subject;
-		$scope.title = "こんな何气ない一日新";
+		$scope.newTitle = $scope.title = "こんな何气ない一日新";
+		$scope.changeTitle = function () {
+			$scope.title = $scope.newTitle;
+			$scope.isEditingTitle = false;
+		};
+		$scope.titleBtnCls = function () {
+			return $scope.newTitle === $scope.title ? 'btn-default' : 'btn-success';
+		};
+		$scope.titleIcoCls = function () {
+			return $scope.newTitle === $scope.title ? 'glyphicon-remove' : 'glyphicon-ok';
+		};
 		$scope.list = [
 			{
 				color : "default",

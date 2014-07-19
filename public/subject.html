@@ -10,11 +10,7 @@
 					<li class="dropdown-header text-center">Subject Actions</li>
 					<li><a href="#">
 						<span class="glyphicon glyphicon-tint"></span>
-						Change Color&hellip;
-					</a></li>
-					<li><a href="#">
-						<span class="glyphicon glyphicon-edit"></span>
-						Rename&hellip;
+						Color&hellip;
 					</a></li>
 					<li><a href="#">
 						<span class="glyphicon glyphicon-share"></span>
@@ -22,27 +18,33 @@
 					</a></li>
 					<li class="divider"></li>
 					<li><a href="#">
-						<span class="glyphicon glyphicon-eye-close"></span>
-						Close
-					</a></li>
-					<li class="divider"></li>
-					<li class="dropdown-header text-center">Stream Actions</li>
-					<li><a href="#">
 						<span class="glyphicon glyphicon-plus"></span>
-						Add&hellip;
-					</a></li>
-					<li><a href="#">
-						<span class="glyphicon glyphicon-transfer"></span>
-						Move All&hellip;
+						Add Stream&hellip;
 					</a></li>
 					<li class="divider"></li>
 					<li><a href="#">
-						<span class="glyphicon glyphicon-eye-close"></span>
-						Close All
+						<span class="glyphicon glyphicon-off"></span>
+						Close
 					</a></li>
 				</ul>
 			</small>
-			<span class="text-danger">{{title}}</span>
+			<span class="text-danger"
+			      ng-click="isEditingTitle=true"
+			      ng-hide="isEditingTitle">{{title}}</span>
+
+			<form class="input-group input-group-lg col-xs-10"
+			      ng-show="isEditingTitle"
+			      ng-submit="changeTitle()">
+				<input class="form-control"
+				       ng-show="isEditingTitle"
+				       ng-model="newTitle" />
+
+				<div class="input-group-btn">
+					<button class="btn" type="submit" ng-class="titleBtnCls()">
+						<span class="glyphicon" ng-class="titleIcoCls()"></span>
+					</button>
+				</div>
+			</form>
 		</h1>
 	</div>
 </div>
@@ -57,42 +59,28 @@
 				<li class="dropdown-header text-center">Stream Actions</li>
 				<li><a href="#">
 					<span class="glyphicon glyphicon-tint"></span>
-					Change Color&hellip;
+					Color&hellip;
 				</a></li>
 				<li><a href="#">
-					<span class="glyphicon glyphicon-transfer"></span>
+					<span class="glyphicon glyphicon-share-alt"></span>
 					Move&hellip;
 				</a></li>
-				<li><a href="#">
-					<span class="glyphicon glyphicon-edit"></span>
-					Rename&hellip;
-				</a></li>
 				<li class="divider"></li>
-				<li><a href="#">
-					<span class="glyphicon glyphicon-eye-close"></span>
-					Close
-				</a></li>
-				<li class="divider"></li>
-				<li class="dropdown-header text-center">Flow Actions</li>
 				<li><a href="#">
 					<span class="glyphicon glyphicon-plus"></span>
-					Add&hellip;
-				</a></li>
-				<li><a href="#">
-					<span class="glyphicon glyphicon-transfer"></span>
-					Move All&hellip;
+					Add Flow&hellip;
 				</a></li>
 				<li class="divider"></li>
 				<li><a href="#">
-					<span class="glyphicon glyphicon-eye-close"></span>
-					Close All
+					<span class="glyphicon glyphicon-off"></span>
+					Close
 				</a></li>
 			</ul>
 		</small>
 		<span class="text-{{stream.color}}">{{stream.title}}</span>
 	</h2>
 	<a class="col-xs-12 col-sm-6 col-lg-4"
-	   ng-href="#/subject/{{subject}}/{{flow.id}}"
+	   ng-href="#/flow/{{flow.id}}"
 	   ng-repeat="flow in stream.flows">
 		<blockquote class="panel-{{flow.color}} text-{{flow.color}}">
 			<span class="glyphicon glyphicon-chevron-right pull-right"></span>

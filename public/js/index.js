@@ -2,7 +2,7 @@
 	"use strict";
 
 	app.config(function ($routeProvider) {
-		$routeProvider.otherwise({redirectTo : '/subject'})
+		$routeProvider.otherwise({redirectTo : '/subjects'})
 			.when('/account', {
 				templateUrl : 'account.html',
 				controller : 'AccountCtrl'
@@ -11,7 +11,7 @@
 				templateUrl : 'setting.html',
 				controller : 'SettingCtrl'
 			})
-			.when('/subject', {
+			.when('/subjects', {
 				templateUrl : 'main.html',
 				controller : 'MainCtrl'
 			})
@@ -19,7 +19,7 @@
 				templateUrl : 'subject.html',
 				controller : 'SubjectCtrl'
 			})
-			.when('/subject/:subject/:flow', {
+			.when('/flow/:flow', {
 				templateUrl : 'flow.html',
 				controller : 'FlowCtrl'
 			});
