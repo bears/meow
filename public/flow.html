@@ -16,10 +16,6 @@
 					<ul class="dropdown-menu dropdown-menu-right">
 						<li class="dropdown-header text-center">Extra Actions</li>
 						<li><a href="#">
-							<span class="glyphicon glyphicon-check"></span>
-							Add Checklist
-						</a></li>
-						<li><a href="#">
 							<span class="glyphicon glyphicon-share"></span>
 							Move&hellip;
 						</a></li>
@@ -50,52 +46,95 @@
 						Due Date
 					</legend>
 					<p>
-						<mark>2014-07-18</mark>
+						<time datetime="2014-07-18T00:00:00Z">2014-07-18</time>
 						<span class="glyphicon glyphicon-edit"></span>
 					</p>
 				</fieldset>
 				<fieldset>
 					<legend>
 						<span class="glyphicon glyphicon-th-list"></span>
-						Some pairs.
+						Check List
 					</legend>
-					<div>
-						<p>
-							<span class="glyphicon glyphicon-unchecked"></span>
-							min-max pair.
-							<br />
-							<span class="glyphicon glyphicon-check"></span>
-							<del class="text-muted">key-value pair.</del>
-							<br />
-							<span class="glyphicon glyphicon-check"></span>
-							<del class="text-muted">append|insert into [][]...</del>
-						</p>
-						<div class="progress">
-							<div class="progress-bar progress-bar-{{color}}"
-							     style="width:66%;">66%
-							</div>
-						</div>
+					<div class="row col-xs-12"
+					     ng-repeat="cl in checklists">
+						<table class="table table-condensed table-hover">
+							<thead>
+							<tr>
+								<th class="text-center">
+									<span class="glyphicon glyphicon-list-alt"></span>
+								</th>
+								<th ng-click="isEditing=!isEditing">
+									{{cl.title}}
+								</th>
+							</tr>
+							<tr ng-show="isEditing">
+								<td colspan="2">
+									<div class="btn-group btn-group-xs pull-right">
+										<button class="btn btn-default">
+											<span class="glyphicon glyphicon-edit"></span>
+											Edit
+										</button>
+										<button class="btn btn-default">
+											<span class="glyphicon glyphicon-remove"></span>
+											Delete
+										</button>
+									</div>
+								</td>
+							</tr>
+							</thead>
+							<tbody>
+							<tr ng-repeat-start="cc in cl.list"
+							    ng-class="checkLineClass(cc.checked)">
+								<td class="text-center col-xs-2"
+								    ng-click="cc.checked=!cc.checked">
+									<span class="glyphicon"
+									      ng-class="checkLineIcon(cc.checked)"></span>
+								</td>
+								<td ng-click="isEditing=!isEditing">
+									<del class="text-muted"
+									     ng-show="cc.checked">{{cc.title}}
+									</del>
+									<span ng-show="!cc.checked">{{cc.title}}</span>
+								</td>
+							</tr>
+							<tr ng-repeat-end ng-show="isEditing">
+								<td colspan="2">
+									<div class="btn-group btn-group-xs pull-right">
+										<button class="btn btn-default">
+											<span class="glyphicon glyphicon-edit"></span>
+											Edit
+										</button>
+										<button class="btn btn-default">
+											<span class="glyphicon glyphicon-remove"></span>
+											Delete
+										</button>
+									</div>
+								</td>
+							</tr>
+							</tbody>
+							<tfoot>
+							<tr>
+								<th class="text-center text-muted">66%</th>
+								<td>
+									<div class="progress">
+										<div class="progress-bar progress-bar-{{color}}"
+										     style="width:66%;"></div>
+									</div>
+								</td>
+							</tr>
+							</tfoot>
+						</table>
 					</div>
-				</fieldset>
-				<fieldset>
-					<legend>
-						<span class="glyphicon glyphicon-th-list"></span>
-						Unnecessary list.
-					</legend>
-					<div>
-						<p>
-							<span class="glyphicon glyphicon-unchecked"></span>
-							min-max pair.
-							<br />
-							<span class="glyphicon glyphicon-unchecked"></span>
-							key-value pair.
-							<br />
-							<span class="glyphicon glyphicon-unchecked"></span>
-							append|insert into [][]...
-						</p>
+					<div class="row col-xs-12">
+						<div class="input-group">
+							<input class="form-control"
+							       placeholder="New check list&hellip;" />
 
-						<div class="progress">
-							<div class="progress-bar progress-bar-{{color}}">0%</div>
+							<div class="input-group-btn">
+								<button class="btn btn-default">
+									<span class="glyphicon glyphicon-plus"></span>
+								</button>
+							</div>
 						</div>
 					</div>
 				</fieldset>
@@ -146,42 +185,65 @@
 					</div>
 					<hr />
 					<div class="row">
-						<div class="col-xs-2 text-right">
-							<img src="https://s.gravatar.com/avatar/1cd363fa7ee9cfe910cc536cb49cead9?s=64" />
-						</div>
+						<div class="col-xs-2 text-right m-comment-icon"
+						     style="background-image: url(https://s.gravatar.com/avatar/1cd363fa7ee9cfe910cc536cb49cead9?s=64)"></div>
 						<blockquote class="col-xs-10">
-							<q>东吴后期名将陆抗，二十岁时就被任命为建武校尉；带领他父亲陆逊留下的部众五千人。</q>
+							<p>东吴后期名将陆抗，二十岁时就被任命为建武校尉；带领他父亲陆逊留下的部众五千人。</p>
 							<footer>
-								May 29 at 4:24 pm
-								<button class="btn-link">Edit</button>
+								<time>
+									May 29 at 4:24 pm
+									<span class="label label-{{color}}">edited</span>
+								</time>
+								<button class="btn btn-default btn-xs">
+									<span class="glyphicon glyphicon-edit"></span>
+									Edit
+								</button>
 							</footer>
 						</blockquote>
 					</div>
 					<div class="row">
-						<div class="col-xs-2 pull-right">
-							<img src="https://s.gravatar.com/avatar/194584c8d388ea49cd012f7b35d05ac7?s=64" />
-						</div>
+						<div class="col-xs-2 pull-right m-comment-icon"
+						     style="background-image: url(https://s.gravatar.com/avatar/194584c8d388ea49cd012f7b35d05ac7?s=64)"></div>
 						<blockquote class="blockquote-reverse col-xs-10">
-							<q>公元264年，孙皓当了东吴的国君，陆抗担任镇军大将军。</q>
-							<footer>May 29 at 4:24 pm</footer>
+							<p>公元264年，孙皓当了东吴的国君，陆抗担任镇军大将军。</p>
+							<footer>
+								<time>May 29 at 4:24 pm</time>
+								<button class="btn btn-default btn-xs">
+									<span class="glyphicon glyphicon-edit"></span>
+									Edit
+								</button>
+							</footer>
 						</blockquote>
 					</div>
 					<div class="row">
-						<div class="col-xs-2 text-right">
-							<img src="https://s.gravatar.com/avatar/1cd363fa7ee9cfe910cc536cb49cead9?s=64" />
-						</div>
+						<div class="col-xs-2 text-right m-comment-icon"
+						     style="background-image: url(https://s.gravatar.com/avatar/1cd363fa7ee9cfe910cc536cb49cead9?s=64)"></div>
 						<blockquote class="col-xs-10">
-							<q>当时，东吴的朝政非常腐败。孙皓荒淫暴虐，宫女有好几千人，还向民间掠夺；又用剥面皮、凿眼睛筹酷刑任意杀人。</q>
-							<footer>May 29 at 4:24 pm</footer>
+							<p>当时，东吴的朝政非常腐败。孙皓荒淫暴虐，宫女有好几千人，还向民间掠夺；又用剥面皮、凿眼睛筹酷刑任意杀人。</p>
+							<footer>
+								<time>May 29 at 4:24 pm</time>
+								<button class="btn btn-default btn-xs">
+									<span class="glyphicon glyphicon-edit"></span>
+									Edit
+								</button>
+							</footer>
 						</blockquote>
 					</div>
 					<div class="row">
-						<div class="col-xs-2 pull-right">
-							<img src="https://s.gravatar.com/avatar/194584c8d388ea49cd012f7b35d05ac7?s=64" />
-						</div>
+						<div class="col-xs-2 pull-right m-comment-icon"
+						     style="background-image: url(https://s.gravatar.com/avatar/194584c8d388ea49cd012f7b35d05ac7?s=64)"></div>
 						<blockquote class="blockquote-reverse col-xs-10">
-							<q>陆抗对孙皓的所作所为非常不满，多次上书，劝谏他对外加强防守，对内改善政治，以增强国力。</q>
-							<footer>May 29 at 4:24 pm</footer>
+							<p>陆抗对孙皓的所作所为非常不满，多次上书，劝谏他对外加强防守，对内改善政治，以增强国力。</p>
+							<footer>
+								<time>
+									May 29 at 4:24 pm
+									<span class="label label-{{color}}">edited</span>
+								</time>
+								<button class="btn btn-default btn-xs">
+									<span class="glyphicon glyphicon-edit"></span>
+									Edit
+								</button>
+							</footer>
 						</blockquote>
 					</div>
 				</fieldset>
