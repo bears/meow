@@ -4,14 +4,36 @@ body {
   padding-top: 70px;
 }
 
-.m-logo {
+.navbar-brand > img {
   width: 50px;
   margin-top: -15px;
 }
 
-.m-flow-details {
-  legend {
-    margin-top: .5em;
+.m-flow {
+  .m-body {
+    legend {
+      margin-top: .5em;
+    }
+    .m-comment {
+      .media-object {
+        border-radius: 50%;
+      }
+      .media-body .well {
+        margin-bottom: 5px;
+      }
+    }
+    .m-checklist {
+      table {
+        margin-bottom: 0;
+        tbody td:first-child {
+          cursor: pointer;
+        }
+      }
+    }
+    .m-member .btn {
+      height: 40px;
+      width: 40px;
+    }
   }
 }
 
