@@ -7,14 +7,13 @@
 				<div class="btn-group pull-right">
 					<button class="btn btn-default">
 						<span class="glyphicon glyphicon-edit"></span>
-						Edit
 					</button>
 					<button class="btn btn-default dropdown-toggle"
 					        data-toggle="dropdown">
 						<span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu dropdown-menu-right">
-						<li class="dropdown-header text-center">Extra Actions</li>
+						<li class="dropdown-header text-center">Action of Flow</li>
 						<li><a href="#">
 							<span class="glyphicon glyphicon-share"></span>
 							Move&hellip;
@@ -37,7 +36,9 @@
 					</legend>
 					<p>
 						东吴后期名将陆抗，二十岁时就被任命为建武校尉；带领他父亲陆逊留下的部众五千人。公元264年，孙皓当了东吴的国君，三十八岁的陆抗担任镇军大将军。当时，东吴的朝政非常腐败。孙皓荒淫暴虐，宫女有好几千人，还向民间掠夺；又用剥面皮、凿眼睛筹酷刑任意杀人。陆抗对孙皓的所作所为非常不满，多次上书，劝谏他对外加强防守，对内改善政治，以增强国力。他曾在奏疏中一次陈述当前应做的事达十六件之多。但是，孙皓对他的建议置之不理。 公元272年，镇守西陵的吴将步阐投降晋朝。陆抗得知后、立即率军征讨步阐。他知道晋军一定会来接应步阐，因此命令军民在西 陵外围修筑一道坚固的围墙。吴将多次要求攻打西陵，但陆抗总是不许。等到工事完成；晋军已经赶到西陵接应步阐，陆抗率军击退来援的晋军，再向西陵发起猛攻，很快攻进城内，将叛将步阐杀死。当时，晋朝的车骑将军羊祜镇守襄阳。他见陆抗能攻善守，知道要打败东吴并不容易，因此对东吴采取和解策略：部下掠夺了东吴的孩子，他下令放回；行军到东吴边境，收割了东吴方面的庄稼，就送绢帛给东吴作抵偿，猎获的禽兽已被吴人打伤，就送还东吴。陆抗明白羊祜的用意，也用同样的态度对待晋商。
-						<span class="glyphicon glyphicon-edit"></span>
+						<button class="btn btn-default btn-xs">
+							<span class="glyphicon glyphicon-edit"></span>
+						</button>
 					</p>
 				</fieldset>
 				<fieldset>
@@ -47,7 +48,9 @@
 					</legend>
 					<p>
 						<time datetime="2014-07-18T00:00:00Z">2014-07-18</time>
-						<span class="glyphicon glyphicon-edit"></span>
+						<button class="btn btn-default btn-xs">
+							<span class="glyphicon glyphicon-edit"></span>
+						</button>
 					</p>
 				</fieldset>
 				<fieldset class="m-checklist">
@@ -60,54 +63,63 @@
 						<table class="table table-condensed table-hover">
 							<thead>
 							<tr>
-								<th class="text-center">
-									<span class="glyphicon glyphicon-list-alt"></span>
-								</th>
-								<th ng-click="isEditing=!isEditing">
+								<th colspan="2">
 									{{cl.title}}
 								</th>
-							</tr>
-							<tr ng-show="isEditing">
-								<td colspan="2">
+								<th>
 									<div class="btn-group btn-group-xs pull-right">
-										<button class="btn btn-default">
-											<span class="glyphicon glyphicon-edit"></span>
-											Edit
+										<button class="btn btn-link dropdown-toggle"
+										        data-toggle="dropdown">
+											<span class="caret text-{{color}}"></span>
 										</button>
-										<button class="btn btn-default">
-											<span class="glyphicon glyphicon-remove"></span>
-											Delete
-										</button>
+										<ul class="dropdown-menu dropdown-menu-right">
+											<li class="dropdown-header text-center">Action of Check List</li>
+											<li><a>
+												<span class="glyphicon glyphicon-edit"></span>
+												Edit
+											</a></li>
+											<li class="divider"></li>
+											<li><a>
+												<span class="glyphicon glyphicon-remove-circle"></span>
+												Remove
+											</a></li>
+										</ul>
 									</div>
-								</td>
+								</th>
 							</tr>
 							</thead>
 							<tbody>
-							<tr ng-repeat-start="cc in cl.list"
+							<tr ng-repeat="cc in cl.list"
 							    ng-class="checkLineClass(cc.checked)">
 								<td class="text-center col-xs-2"
 								    ng-click="cc.checked=!cc.checked">
 									<span class="glyphicon"
 									      ng-class="checkLineIcon(cc.checked)"></span>
 								</td>
-								<td ng-click="isEditing=!isEditing">
+								<td>
 									<del class="text-muted"
 									     ng-show="cc.checked">{{cc.title}}
 									</del>
 									<span ng-show="!cc.checked">{{cc.title}}</span>
 								</td>
-							</tr>
-							<tr ng-repeat-end ng-show="isEditing">
-								<td colspan="2">
+								<td>
 									<div class="btn-group btn-group-xs pull-right">
-										<button class="btn btn-default">
-											<span class="glyphicon glyphicon-edit"></span>
-											Edit
+										<button class="btn btn-link dropdown-toggle"
+										        data-toggle="dropdown">
+											<span class="caret text-{{color}}"></span>
 										</button>
-										<button class="btn btn-default">
-											<span class="glyphicon glyphicon-remove"></span>
-											Delete
-										</button>
+										<ul class="dropdown-menu dropdown-menu-right">
+											<li class="dropdown-header text-center">Action of Clause</li>
+											<li><a>
+												<span class="glyphicon glyphicon-edit"></span>
+												Edit
+											</a></li>
+											<li class="divider"></li>
+											<li><a>
+												<span class="glyphicon glyphicon-remove-circle"></span>
+												Remove
+											</a></li>
+										</ul>
 									</div>
 								</td>
 							</tr>
@@ -115,7 +127,7 @@
 							<tfoot>
 							<tr>
 								<th class="text-center text-muted">66%</th>
-								<td>
+								<td colspan="2">
 									<div class="progress">
 										<div class="progress-bar progress-bar-{{color}}"
 										     style="width:66%;"></div>
@@ -144,8 +156,10 @@
 						Member
 					</legend>
 					<p>
-						<img src="https://s.gravatar.com/avatar/1cd363fa7ee9cfe910cc536cb49cead9?s=40" />
-						<img src="https://s.gravatar.com/avatar/194584c8d388ea49cd012f7b35d05ac7?s=40" />
+						<img src="//s.gravatar.com/avatar/1cd363fa7ee9cfe910cc536cb49cead9?s=40"
+						     width="40" />
+						<img src="//s.gravatar.com/avatar/194584c8d388ea49cd012f7b35d05ac7?s=40"
+						     width="40" />
 						<button class="btn btn-default">
 							<span class="glyphicon glyphicon-plus"></span>
 						</button>
@@ -188,21 +202,22 @@
 						<li class="media">
 							<a class="pull-left" href="#">
 								<img class="media-object"
+								     width="64"
 								     src="//s.gravatar.com/avatar/1cd363fa7ee9cfe910cc536cb49cead9?s=64" />
 							</a>
 							<article class="media-body">
 								<strong class="media-heading">Iceberg YOUNG</strong>
 
 								<p class="well well-sm">东吴后期名将陆抗，二十岁时就被任命为建武校尉；带领他父亲陆逊留下的部众五千人。</p>
-								<footer class="pull-right">
+								<footer class="pull-right text-right">
 									<span class="label label-{{color}}"></span>
 									<time>May 29 at 4:24 pm</time>
 									&ndash;
+									<br class="visible-xs" />
 									<span class="text-{{color}}">edited</span>
 									<time>May 29 at 4:24 pm</time>
 									<button class="btn btn-default btn-xs">
 										<span class="glyphicon glyphicon-edit"></span>
-										Edit
 									</button>
 								</footer>
 							</article>
@@ -210,17 +225,17 @@
 						<li class="media">
 							<a class="pull-left" href="#">
 								<img class="media-object"
+								     width="64"
 								     src="//s.gravatar.com/avatar/194584c8d388ea49cd012f7b35d05ac7?s=64" />
 							</a>
 							<article class="media-body">
 								<strong class="media-heading">Shiny LEE</strong>
 
 								<p class="well well-sm">公元264年，孙皓当了东吴的国君，陆抗担任镇军大将军。</p>
-								<footer class="pull-right">
+								<footer class="pull-right text-right">
 									<time>May 29 at 4:24 pm</time>
 									<button class="btn btn-default btn-xs">
 										<span class="glyphicon glyphicon-edit"></span>
-										Edit
 									</button>
 								</footer>
 							</article>
@@ -228,20 +243,21 @@
 						<li class="media">
 							<a class="pull-left" href="#">
 								<img class="media-object"
+								     width="64"
 								     src="//s.gravatar.com/avatar/1cd363fa7ee9cfe910cc536cb49cead9?s=64" />
 							</a>
 							<article class="media-body">
 								<strong class="media-heading">Iceberg YOUNG</strong>
 
 								<p class="well well-sm">当时，东吴的朝政非常腐败。孙皓荒淫暴虐，宫女有好几千人，还向民间掠夺；又用剥面皮、凿眼睛筹酷刑任意杀人。</p>
-								<footer class="pull-right">
+								<footer class="pull-right text-right">
 									<time>May 29 at 4:24 pm</time>
 									&ndash;
+									<br class="visible-xs" />
 									<span class="text-{{color}}">edited</span>
 									<time>May 29 at 4:24 pm</time>
 									<button class="btn btn-default btn-xs">
 										<span class="glyphicon glyphicon-edit"></span>
-										Edit
 									</button>
 								</footer>
 							</article>
@@ -249,17 +265,17 @@
 						<li class="media">
 							<a class="pull-left" href="#">
 								<img class="media-object"
+								     width="64"
 								     src="//s.gravatar.com/avatar/194584c8d388ea49cd012f7b35d05ac7?s=64" />
 							</a>
 							<article class="media-body">
 								<strong class="media-heading">Shiny LEE</strong>
 
 								<p class="well well-sm">陆抗对孙皓的所作所为非常不满，多次上书，劝谏他对外加强防守，对内改善政治，以增强国力。</p>
-								<footer class="pull-right">
+								<footer class="pull-right text-right">
 									<time>May 29 at 4:24 pm</time>
 									<button class="btn btn-default btn-xs">
 										<span class="glyphicon glyphicon-edit"></span>
-										Edit
 									</button>
 								</footer>
 							</article>

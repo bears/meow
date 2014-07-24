@@ -18,9 +18,9 @@
 				]
 			},
 			{
-				title : 'Unnecessary list',
+				title : 'Unnecessary dummy dummy dummy dummy dummy dummy dummy dummy dummy list',
 				list : [
-					{title : 'append|insert into [][]...', checked : false}
+					{title : 'Very looooo oooooo ooooooo oooooooo ooooo oooooo oooooo ooooooo oooo oong clause', checked : false}
 				]
 			}
 		];
