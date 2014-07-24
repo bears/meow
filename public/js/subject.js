@@ -8,16 +8,18 @@
 		$scope.changeColor = function (color) {
 			$scope.color = color;
 		};
-		$scope.newTitle = $scope.title = "こんな何气ない一日新";
-		$scope.changeTitle = function () {
-			$scope.title = $scope.newTitle;
-			$scope.isEditingTitle = false;
+		$scope.title = "こんな何气ない一日新";
+		$scope.renameSubject = function (title) {
+			$scope.title = title;
 		};
-		$scope.titleBtnCls = function () {
-			return $scope.newTitle === $scope.title ? 'btn-default' : 'btn-success';
+		$scope.renameStream = function (stream, title) {
+			stream.title = title;
 		};
-		$scope.titleIcoCls = function () {
-			return $scope.newTitle === $scope.title ? 'glyphicon-remove' : 'glyphicon-ok';
+		$scope.titleBtnCls = function (ot, nt) {
+			return ot === nt ? 'btn-default' : 'btn-success';
+		};
+		$scope.titleIcoCls = function (ot, nt) {
+			return ot === nt ? 'glyphicon-remove' : 'glyphicon-ok';
 		};
 		$scope.list = [
 			{

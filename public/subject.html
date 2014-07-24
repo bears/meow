@@ -1,80 +1,92 @@
 <div class="row">
 	<div class="col-xs-12">
-		<h1 class="row">
-			<div class="col-xs-8 col-md-10">
-				<p class="text-{{color}}"
-				   ng-hide="isEditingTitle">{{title}}</p>
-
-				<form class="input-group input-group-lg"
-				      ng-show="isEditingTitle"
-				      ng-submit="changeTitle()">
-					<input class="form-control"
-					       ng-show="isEditingTitle"
-					       ng-model="newTitle" />
-
-					<div class="input-group-btn">
-						<button class="btn"
-						        type="submit"
-						        ng-class="titleBtnCls()">
-							<span class="glyphicon"
-							      ng-class="titleIcoCls()"></span>
-						</button>
-					</div>
-				</form>
+		<div ng-hide="subjectRenaming">
+			<div class="btn-group pull-right">
+				<button class="btn btn-default"
+				        ng-click="subjectRenaming=true">
+					<span class="glyphicon glyphicon-edit"></span>
+				</button>
+				<button class="btn btn-default dropdown-toggle"
+				        data-toggle="dropdown">
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li class="dropdown-header text-center">Action of Subject</li>
+					<li><a href="#">
+						<span class="glyphicon glyphicon-send"></span>
+						share&hellip;
+					</a></li>
+					<li class="divider"></li>
+					<li><a href="#">
+						<span class="glyphicon glyphicon-off"></span>
+						Close
+					</a></li>
+				</ul>
 			</div>
-			<div class="col-xs-4 col-md-2">
-				<div class="btn-group pull-right">
-					<button class="btn btn-default"
-					        ng-click="isEditingTitle=true">
-						<span class="glyphicon glyphicon-edit"></span>
-					</button>
-					<button class="btn btn-default dropdown-toggle"
-					        data-toggle="dropdown">
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu dropdown-menu-right">
-						<li class="dropdown-header text-center">Action of Subject</li>
-						<li><a href="#">
-							<span class="glyphicon glyphicon-send"></span>
-							share&hellip;
-						</a></li>
-						<li class="divider"></li>
-						<li><a href="#">
-							<span class="glyphicon glyphicon-off"></span>
-							Close
-						</a></li>
-					</ul>
-				</div>
+			<h1 class="text-{{color}}">{{title}}</h1>
+		</div>
+		<form class="input-group input-group-lg"
+		      ng-show="subjectRenaming"
+		      ng-submit="renameSubject(newTitle); subjectRenaming=false">
+			<input class="form-control"
+			       ng-init="newTitle=title"
+			       ng-model="newTitle" />
+
+			<div class="input-group-btn">
+				<button class="btn"
+				        type="submit"
+				        ng-class="titleBtnCls(title, newTitle)">
+					<span class="glyphicon"
+					      ng-class="titleIcoCls(title, newTitle)"></span>
+				</button>
 			</div>
-		</h1>
+		</form>
 	</div>
 </div>
 <div class="row" ng-repeat="stream in list">
-	<h2 class="col-xs-12 page-header">
-		<span class="text-muted">{{stream.title}}</span>
-
-		<div class="btn-group pull-right">
-			<button class="btn btn-default">
-				<span class="glyphicon glyphicon-edit"></span>
-			</button>
-			<button class="btn btn-default dropdown-toggle"
-			        data-toggle="dropdown">
-				<span class="caret"></span>
-			</button>
-			<ul class="dropdown-menu dropdown-menu-right">
-				<li class="dropdown-header text-center">Action of Stream</li>
-				<li><a href="#">
-					<span class="glyphicon glyphicon-share"></span>
-					Move&hellip;
-				</a></li>
-				<li class="divider"></li>
-				<li><a href="#">
-					<span class="glyphicon glyphicon-off"></span>
-					Close
-				</a></li>
-			</ul>
+	<div class="col-xs-12 page-header">
+		<div ng-hide="streamRenaming">
+			<div class="btn-group pull-right">
+				<button class="btn btn-default"
+				        ng-click="streamRenaming=true">
+					<span class="glyphicon glyphicon-edit"></span>
+				</button>
+				<button class="btn btn-default dropdown-toggle"
+				        data-toggle="dropdown">
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li class="dropdown-header text-center">Action of Stream</li>
+					<li><a href="#">
+						<span class="glyphicon glyphicon-share"></span>
+						Move&hellip;
+					</a></li>
+					<li class="divider"></li>
+					<li><a href="#">
+						<span class="glyphicon glyphicon-off"></span>
+						Close
+					</a></li>
+				</ul>
+			</div>
+			<h2 class="text-muted">{{stream.title}}</h2>
 		</div>
-	</h2>
+		<form class="input-group input-group-lg"
+		      ng-show="streamRenaming"
+		      ng-submit="renameStream(stream, newTitle); streamRenaming=false">
+			<input class="form-control"
+			       ng-init="newTitle=stream.title"
+			       ng-model="newTitle" />
+
+			<div class="input-group-btn">
+				<button class="btn"
+				        type="submit"
+				        ng-class="titleBtnCls(stream.title, newTitle)">
+					<span class="glyphicon"
+					      ng-class="titleIcoCls(stream.title, newTitle)"></span>
+				</button>
+			</div>
+		</form>
+	</div>
 	<div class="col-xs-12 col-sm-6 col-lg-4"
 	     ng-repeat="flow in stream.flows">
 		<blockquote class="panel-{{flow.color}}">
